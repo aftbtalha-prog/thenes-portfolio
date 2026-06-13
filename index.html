@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>thenes | Music Producer & Beatmaker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
+    <style>
+        body { background-color: #000; color: #fff; scroll-behavior: smooth; }
+        .silver-text { color: #C0C0C0; }
+        .monochrome-border { border-color: #333; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .fade-in { animation: fadeIn 1.5s ease-out; }
+    </style>
+</head>
+<body class="font-sans antialiased">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 p-6 flex justify-between items-center backdrop-blur-sm">
+        <div class="text-2xl font-bold tracking-tighter silver-text">thenes</div>
+        <div class="space-x-8 text-sm uppercase tracking-widest hidden md:flex">
+            <a href="#beats" class="hover:text-silver-text transition">Beats</a>
+            <a href="#portfolio" class="hover:text-silver-text transition">Portfolio</a>
+            <a href="#contact" class="hover:text-silver-text transition">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="h-screen flex flex-col justify-center items-center text-center px-4 fade-in">
+        <img src="https://poke.com/api/media/ea44f285-7af6-47ec-9954-391650b68390" alt="thenes logo" class="w-32 h-32 mb-8 opacity-90">
+        <h1 class="text-6xl md:text-8xl font-black mb-4 tracking-tighter">THENES</h1>
+        <p class="text-xl md:text-2xl silver-text font-light tracking-widest uppercase">Istanbul Music Producer & Beatmaker</p>
+    </section>
+
+    <!-- Beats Section -->
+    <section id="beats" class="py-32 px-6 max-w-6xl mx-auto">
+        <h2 class="text-4xl font-bold mb-16 border-b monochrome-border pb-4 uppercase tracking-tighter">Selected Beats</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div class="group border monochrome-border p-8 hover:bg-zinc-900 transition duration-500">
+                <span class="text-xs silver-text uppercase tracking-widest mb-2 block">01 / Dark Trap</span>
+                <h3 class="text-2xl font-bold mb-4">OBSIDIAN</h3>
+                <div class="h-1 bg-white w-0 group-hover:w-full transition-all duration-500"></div>
+            </div>
+            <div class="group border monochrome-border p-8 hover:bg-zinc-900 transition duration-500">
+                <span class="text-xs silver-text uppercase tracking-widest mb-2 block">02 / Melodic</span>
+                <h3 class="text-2xl font-bold mb-4">BOSPHORUS DRIFT</h3>
+                <div class="h-1 bg-white w-0 group-hover:w-full transition-all duration-500"></div>
+            </div>
+            <div class="group border monochrome-border p-8 hover:bg-zinc-900 transition duration-500">
+                <span class="text-xs silver-text uppercase tracking-widest mb-2 block">03 / Drill</span>
+                <h3 class="text-2xl font-bold mb-4">GALATA PULSE</h3>
+                <div class="h-1 bg-white w-0 group-hover:w-full transition-all duration-500"></div>
+            </div>
+            <div class="group border monochrome-border p-8 hover:bg-zinc-900 transition duration-500">
+                <span class="text-xs silver-text uppercase tracking-widest mb-2 block">04 / Experimental</span>
+                <h3 class="text-2xl font-bold mb-4">VOID DANCE</h3>
+                <div class="h-1 bg-white w-0 group-hover:w-full transition-all duration-500"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-32 bg-zinc-950 px-6">
+        <div class="max-w-6xl mx-auto text-right">
+            <h2 class="text-4xl font-bold mb-16 border-b monochrome-border pb-4 uppercase tracking-tighter inline-block">Portfolio</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left mt-12">
+                <p class="silver-text leading-relaxed">Collaborations with major Turkish hip-hop artists and international labels. Specializing in cinematic production and avant-garde sound design.</p>
+                <div class="border-l monochrome-border pl-6">
+                    <h4 class="font-bold mb-2 uppercase text-sm">Artists</h4>
+                    <ul class="text-sm space-y-1 silver-text">
+                        <li>Artist A</li>
+                        <li>Artist B</li>
+                        <li>Artist C</li>
+                    </ul>
+                </div>
+                <div class="border-l monochrome-border pl-6">
+                    <h4 class="font-bold mb-2 uppercase text-sm">Releases</h4>
+                    <ul class="text-sm space-y-1 silver-text">
+                        <li>Album X (2025)</li>
+                        <li>Single Y (2026)</li>
+                        <li>EP Z (2024)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-32 px-6 max-w-2xl mx-auto text-center">
+        <h2 class="text-5xl font-black mb-8 uppercase italic tracking-tighter">Let&apos;s Create.</h2>
+        <p class="silver-text mb-12">Available for custom production, mixing, and sound design inquiries.</p>
+        <a href="mailto:contact@thenes.com" class="inline-block border border-white px-12 py-4 hover:bg-white hover:text-black transition duration-300 font-bold tracking-widest uppercase text-sm">
+            Send Inquiry
+        </a>
+    </section>
+
+    <footer class="p-12 text-center text-xs silver-text tracking-widest uppercase opacity-50">
+        &copy; 2026 THENES. ISTANBUL.
+    </footer>
+</body>
+</html>
