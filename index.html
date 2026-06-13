@@ -1,104 +1,240 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>thenes | Music Producer & Beatmaker</title>
+    <title>thenes | Premium Music Producer</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#1A1A1A',
+                        accent: '#B89C6F',
+                        secondary: '#AAAAAA'
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        body { background-color: #000; color: #fff; scroll-behavior: smooth; }
-        .silver-text { color: #C0C0C0; }
-        .monochrome-border { border-color: #333; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        .fade-in { animation: fadeIn 1.5s ease-out; }
+        body { background-color: #1A1A1A; color: #FFFFFF; }
+        .hero-gradient {
+            background: linear-gradient(to bottom, rgba(26,26,26,0.4), rgba(26,26,26,1)), url('https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&q=80&w=2000');
+            background-size: cover;
+            background-position: center;
+        }
+        .card-overlay {
+            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 100%);
+        }
+        .btn-premium {
+            border: 1px solid #B89C6F;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .btn-premium:hover {
+            background-color: #B89C6F;
+            color: #1A1A1A;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -10px rgba(184, 156, 111, 0.5);
+        }
+        .nav-link {
+            position: relative;
+            color: #AAAAAA;
+            transition: color 0.3s;
+        }
+        .nav-link:hover { color: #FFFFFF; }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -4px;
+            left: 0;
+            background-color: #B89C6F;
+            transition: width 0.3s;
+        }
+        .nav-link:hover::after { width: 100%; }
+        
+        @keyframes bounce-slow {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(10px); }
+        }
+        .animate-bounce-slow { animation: bounce-slow 2s infinite; }
     </style>
 </head>
-<body class="font-sans antialiased">
-    <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 p-6 flex justify-between items-center backdrop-blur-sm">
-        <div class="text-2xl font-bold tracking-tighter silver-text">thenes</div>
-        <div class="space-x-8 text-sm uppercase tracking-widest hidden md:flex">
-            <a href="#beats" class="hover:text-silver-text transition">Beats</a>
-            <a href="#portfolio" class="hover:text-silver-text transition">Portfolio</a>
-            <a href="#contact" class="hover:text-silver-text transition">Contact</a>
-        </div>
-    </nav>
+<body class="antialiased overflow-x-hidden">
+
+    <!-- Header / Nav -->
+    <header class="fixed top-0 w-full z-50 py-8 px-10 flex justify-between items-center backdrop-blur-md bg-dark/30">
+        <div class="text-2xl font-black tracking-tighter uppercase">thenes</div>
+        <nav class="hidden md:flex space-x-10 text-[10px] font-bold tracking-[0.3em] uppercase">
+            <a href="#home" class="nav-link">Home</a>
+            <a href="#portfolio" class="nav-link">Portfolio</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </nav>
+    </header>
 
     <!-- Hero Section -->
-    <section class="h-screen flex flex-col justify-center items-center text-center px-4 fade-in">
-        <svg class="w-32 h-32 mb-8 opacity-90" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="50" cy="50" r="48" stroke="white" stroke-width="2"/>
-            <path d="M30 35H70M30 50H70M30 65H55" stroke="white" stroke-width="4" stroke-linecap="round"/>
-        </svg>
-        <h1 class="text-6xl md:text-8xl font-black mb-4 tracking-tighter">THENES</h1>
-        <p class="text-xl md:text-2xl silver-text font-light tracking-widest uppercase">Istanbul Music Producer & Beatmaker</p>
-    </section>
-
-    <!-- Beats Section -->
-    <section id="beats" class="py-32 px-6 max-w-6xl mx-auto">
-        <h2 class="text-4xl font-bold mb-16 border-b monochrome-border pb-4 uppercase tracking-tighter">Selected Beats</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div class="group border monochrome-border p-8 hover:bg-zinc-900 transition duration-500 cursor-pointer">
-                <span class="text-xs silver-text uppercase tracking-widest mb-2 block">01 / Dark Trap</span>
-                <h3 class="text-2xl font-bold mb-4">OBSIDIAN</h3>
-                <div class="h-1 bg-white w-0 group-hover:w-full transition-all duration-500"></div>
-            </div>
-            <div class="group border monochrome-border p-8 hover:bg-zinc-900 transition duration-500 cursor-pointer">
-                <span class="text-xs silver-text uppercase tracking-widest mb-2 block">02 / Melodic</span>
-                <h3 class="text-2xl font-bold mb-4">BOSPHORUS DRIFT</h3>
-                <div class="h-1 bg-white w-0 group-hover:w-full transition-all duration-500"></div>
-            </div>
-            <div class="group border monochrome-border p-8 hover:bg-zinc-900 transition duration-500 cursor-pointer">
-                <span class="text-xs silver-text uppercase tracking-widest mb-2 block">03 / Drill</span>
-                <h3 class="text-2xl font-bold mb-4">GALATA PULSE</h3>
-                <div class="h-1 bg-white w-0 group-hover:w-full transition-all duration-500"></div>
-            </div>
-            <div class="group border monochrome-border p-8 hover:bg-zinc-900 transition duration-500 cursor-pointer">
-                <span class="text-xs silver-text uppercase tracking-widest mb-2 block">04 / Experimental</span>
-                <h3 class="text-2xl font-bold mb-4">VOID DANCE</h3>
-                <div class="h-1 bg-white w-0 group-hover:w-full transition-all duration-500"></div>
+    <section id="home" class="h-screen hero-gradient flex flex-col justify-center items-center text-center px-6">
+        <div class="space-y-4 max-w-4xl">
+            <span class="text-accent text-xs font-bold tracking-[0.5em] uppercase block mb-2">Music Producer</span>
+            <h1 class="text-7xl md:text-9xl font-black tracking-tighter mb-6 leading-none">THENES</h1>
+            <p class="text-lg md:text-xl font-light text-secondary max-w-2xl mx-auto mb-10">Crafting soundscapes that speak beyond words. Istanbul's signature sound for the modern era.</p>
+            <div class="flex flex-col items-center gap-12">
+                <a href="#portfolio" class="btn-premium px-10 py-4 text-xs font-bold tracking-widest uppercase">
+                    Listen to my work
+                </a>
+                <a href="#portfolio" class="animate-bounce-slow">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B89C6F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 13l5 5 5-5M7 6l5 5 5-5"/></svg>
+                </a>
             </div>
         </div>
     </section>
 
     <!-- Portfolio Section -->
-    <section id="portfolio" class="py-32 bg-zinc-950 px-6">
-        <div class="max-w-6xl mx-auto text-right">
-            <h2 class="text-4xl font-bold mb-16 border-b monochrome-border pb-4 uppercase tracking-tighter inline-block">Portfolio</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left mt-12">
-                <p class="silver-text leading-relaxed">Collaborations with major Turkish hip-hop artists and international labels. Specializing in cinematic production and avant-garde sound design.</p>
-                <div class="border-l monochrome-border pl-6">
-                    <h4 class="font-bold mb-2 uppercase text-sm">Artists</h4>
-                    <ul class="text-sm space-y-1 silver-text">
-                        <li>Artist A</li>
-                        <li>Artist B</li>
-                        <li>Artist C</li>
-                    </ul>
+    <section id="portfolio" class="py-32 px-10 max-w-7xl mx-auto">
+        <div class="text-center mb-24">
+            <span class="text-accent text-[10px] font-bold tracking-[0.5em] uppercase block mb-4">Portfolio</span>
+            <h2 class="text-4xl md:text-5xl font-black tracking-tight">Selected Works</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Card 1 -->
+            <div class="group relative aspect-[4/5] overflow-hidden cursor-pointer">
+                <img src="https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?auto=format&fit=crop&q=80&w=800" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Midnight Drive">
+                <div class="absolute inset-0 card-overlay flex flex-col justify-end p-8">
+                    <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        <div class="w-16 h-16 rounded-full border border-white flex items-center justify-center backdrop-blur-sm bg-white/10">
+                            <svg class="ml-1" width="20" height="24" viewBox="0 0 24 24" fill="white"><path d="M5 3l14 9-14 9V3z"/></svg>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-1">Midnight Drive</h3>
+                    <p class="text-accent text-xs font-bold tracking-widest uppercase">Trap / 140 BPM</p>
                 </div>
-                <div class="border-l monochrome-border pl-6">
-                    <h4 class="font-bold mb-2 uppercase text-sm">Releases</h4>
-                    <ul class="text-sm space-y-1 silver-text">
-                        <li>Album X (2025)</li>
-                        <li>Single Y (2026)</li>
-                        <li>EP Z (2024)</li>
-                    </ul>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="group relative aspect-[4/5] overflow-hidden cursor-pointer">
+                <img src="https://images.unsplash.com/photo-1514525253344-f814d0743b1a?auto=format&fit=crop&q=80&w=800" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Lost Signals">
+                <div class="absolute inset-0 card-overlay flex flex-col justify-end p-8">
+                    <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        <div class="w-16 h-16 rounded-full border border-white flex items-center justify-center backdrop-blur-sm bg-white/10">
+                            <svg class="ml-1" width="20" height="24" viewBox="0 0 24 24" fill="white"><path d="M5 3l14 9-14 9V3z"/></svg>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-1">Lost Signals</h3>
+                    <p class="text-accent text-xs font-bold tracking-widest uppercase">Drill / 144 BPM</p>
                 </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="group relative aspect-[4/5] overflow-hidden cursor-pointer">
+                <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&q=80&w=800" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Ethereal">
+                <div class="absolute inset-0 card-overlay flex flex-col justify-end p-8">
+                    <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        <div class="w-16 h-16 rounded-full border border-white flex items-center justify-center backdrop-blur-sm bg-white/10">
+                            <svg class="ml-1" width="20" height="24" viewBox="0 0 24 24" fill="white"><path d="M5 3l14 9-14 9V3z"/></svg>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-1">Ethereal</h3>
+                    <p class="text-accent text-xs font-bold tracking-widest uppercase">Ambient / 120 BPM</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-20">
+            <a href="#" class="btn-premium px-10 py-4 text-[10px] font-bold tracking-[0.3em] uppercase inline-block">
+                View All Tracks
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-32 px-10 bg-[#121212]">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+            <div class="relative group">
+                <div class="absolute -inset-4 border border-accent/20 transition-all group-hover:inset-0"></div>
+                <img src="https://images.unsplash.com/photo-1557683316-973673baf926?auto=format&fit=crop&q=80&w=1000" class="relative z-10 w-full h-[600px] object-cover grayscale hover:grayscale-0 transition-all duration-700" alt="thenes in studio">
+            </div>
+            <div class="space-y-8">
+                <span class="text-accent text-[10px] font-bold tracking-[0.5em] uppercase block">About</span>
+                <h2 class="text-5xl font-black tracking-tight">About thenes</h2>
+                <p class="text-secondary leading-loose text-lg font-light">
+                    Based in the heart of Istanbul, thenes bridges the gap between traditional sonic textures and modern industrial rhythms. With over a decade of experience in sound engineering and beatmaking, he crafts audio identities for the next generation of global artists.
+                </p>
+                <p class="text-secondary leading-loose text-lg font-light">
+                    Specializing in Dark Trap, Melodic Drill, and Cinematic Soundscapes, every production is a meticulous balance of atmosphere and impact.
+                </p>
+                <a href="#" class="btn-premium px-10 py-4 text-[10px] font-bold tracking-[0.3em] uppercase inline-block mt-4">
+                    Learn More
+                </a>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-32 px-6 max-w-2xl mx-auto text-center">
-        <h2 class="text-5xl font-black mb-8 uppercase italic tracking-tighter">Let&apos;s Create.</h2>
-        <p class="silver-text mb-12">Available for custom production, mixing, and sound design inquiries.</p>
-        <a href="mailto:contact@thenes.com" class="inline-block border border-white px-12 py-4 hover:bg-white hover:text-black transition duration-300 font-bold tracking-widest uppercase text-sm">
-            Send Inquiry
-        </a>
+    <section id="contact" class="py-32 px-10 text-center">
+        <div class="max-w-3xl mx-auto space-y-12">
+            <div class="space-y-4">
+                <span class="text-accent text-[10px] font-bold tracking-[0.5em] uppercase block">Contact</span>
+                <h2 class="text-6xl font-black tracking-tighter">Let&apos;s Connect</h2>
+                <p class="text-secondary text-xl font-light">Have a project in mind? Let&apos;s work together.</p>
+            </div>
+
+            <div class="flex flex-col md:flex-row justify-center items-center gap-12 pt-10">
+                <a href="mailto:hello@thenes.com" class="group flex items-center gap-4 text-lg hover:text-accent transition">
+                    <div class="w-12 h-12 rounded-full border border-accent/30 flex items-center justify-center group-hover:bg-accent group-hover:border-accent transition-all">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="group-hover:text-dark transition-colors"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    </div>
+                    hello@thenes.com
+                </a>
+                <a href="#" class="group flex items-center gap-4 text-lg hover:text-accent transition">
+                    <div class="w-12 h-12 rounded-full border border-accent/30 flex items-center justify-center group-hover:bg-accent group-hover:border-accent transition-all">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="group-hover:text-dark transition-colors"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                    </div>
+                    @prod.thenes
+                </a>
+                <a href="#" class="group flex items-center gap-4 text-lg hover:text-accent transition">
+                    <div class="w-12 h-12 rounded-full border border-accent/30 flex items-center justify-center group-hover:bg-accent group-hover:border-accent transition-all">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="group-hover:text-dark transition-colors"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 14.5c-2.485 0-4.5-2.015-4.5-4.5s2.015-4.5 4.5-4.5 4.5 2.015 4.5 4.5-2.015 4.5-4.5 4.5z"/></svg>
+                    </div>
+                    soundcloud.com/thenes
+                </a>
+            </div>
+        </div>
     </section>
 
-    <footer class="p-12 text-center text-xs silver-text tracking-widest uppercase opacity-50">
-        &copy; 2026 THENES. ISTANBUL.
+    <!-- Footer -->
+    <footer class="py-20 px-10 border-t border-white/5 text-center">
+        <div class="space-y-8">
+            <div class="flex justify-center items-center gap-8 text-secondary">
+                 <svg class="w-24 h-24 mb-8 opacity-20 grayscale" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="48" stroke="white" stroke-width="2"/>
+                    <path d="M30 35H70M30 50H70M30 65H55" stroke="white" stroke-width="4" stroke-linecap="round"/>
+                </svg>
+            </div>
+            <p class="text-secondary text-[10px] font-bold tracking-[0.4em] uppercase opacity-50">
+                &copy; 2026 thenes. Istanbul. All rights reserved.
+            </p>
+        </div>
     </footer>
+
+    <div class="bg-black/80 py-6 px-10 flex items-center gap-6 border-t border-accent/10">
+        <div class="text-accent opacity-50">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+        <div>
+            <h4 class="text-xs font-bold tracking-widest uppercase text-white mb-1">Single-File Implementation</h4>
+            <p class="text-[10px] text-secondary font-light">All premium styles, animations, and layouts contained in a single performant file.</p>
+        </div>
+    </div>
+
 </body>
 </html>
