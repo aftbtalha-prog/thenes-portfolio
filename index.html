@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>thenes | Profesyonel Müzik Prodüktörü</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&family=Alex+Brush&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
@@ -17,19 +17,20 @@
                     },
                     fontFamily: {
                         sans: ['Montserrat', 'sans-serif'],
+                        signature: ['Alex Brush', 'cursive'],
                     }
                 }
             }
         }
 
-        // Background Source Config - Update these variables to swap images
+        // Background Source Config
         const CONFIG = {
-            heroBg: 'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&q=80&w=2000',
+            heroBg: 'https://storage.googleapis.com/interaction-media-bucket/6efb5b6d-0cb6-422c-9e01-5708b6e4c1df/762d0d1a-264f-59c9-bc8c-9bf150c59e2e?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=vercel%40theta-eon-430220-u6.iam.gserviceaccount.com%2F20260613%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260613T232027Z&X-Goog-Expires=60&X-Goog-SignedHeaders=host&X-Goog-Signature=4dd7a13ea46bf9d7706f84b9883cd7557607798a5127698931b450c4de0de4ceed4dea685cf3b8b34ed967cc76489bf4d896f2dc78e3967767cec303db9a66184f7aeb8bbf1a82d389b70d026fa79eeb4fb29a8b174d99dfc678c44206bd2a5a35ad76dd406219f1c6a8ca7ae3b783021807f15b2002c4b548dd280d445475ee488040c023a2b0389f9b6bf6a59eddabed53db93336ecd638b3b7db78b1bc481ad7a9bb5c755f2d0c27a6923803d5d2702682b012b3e096153065aeebcff3df1a0b5c72239296aebcdb25d89e752de2bd4e9165930968b37244e970a419eca63e6f42d9ba77a23eec31758c67fe6fe936c327c818ad19768033b64ea5188d5df',
             aboutBg: 'https://images.unsplash.com/photo-1557683316-973673baf926?auto=format&fit=crop&q=80&w=1000'
         };
 
         window.onload = () => {
-            document.getElementById('hero-section').style.backgroundImage = `linear-gradient(to bottom, rgba(26,26,26,0.4), rgba(26,26,26,1)), url('${CONFIG.heroBg}')`;
+            document.getElementById('hero-section').style.backgroundImage = `linear-gradient(to bottom, rgba(26,26,26,0.6), rgba(26,26,26,1)), url('${CONFIG.heroBg}')`;
             document.getElementById('about-image').src = CONFIG.aboutBg;
         };
     </script>
@@ -39,6 +40,7 @@
             background-size: cover;
             background-position: center;
         }
+        .font-signature { font-family: 'Alex Brush', cursive; }
         .card-overlay {
             background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 100%);
         }
@@ -81,7 +83,7 @@
 
     <!-- Header / Nav -->
     <header class="fixed top-0 w-full z-50 py-8 px-10 flex justify-between items-center backdrop-blur-md bg-dark/30">
-        <div class="text-2xl font-black tracking-tighter uppercase">thenes</div>
+        <div class="text-3xl font-signature text-white lowercase">thenes</div>
         <nav class="hidden md:flex space-x-10 text-[10px] font-bold tracking-[0.3em] uppercase">
             <a href="#home" class="nav-link">ANA SAYFA</a>
             <a href="#portfolio" class="nav-link">PORTFOLYO</a>
@@ -94,7 +96,7 @@
     <section id="hero-section" class="h-screen flex flex-col justify-center items-center text-center px-6">
         <div class="space-y-4 max-w-4xl">
             <span class="text-accent text-xs font-bold tracking-[0.5em] uppercase block mb-2">Müzik Prodüktörü</span>
-            <h1 class="text-7xl md:text-9xl font-black tracking-tighter mb-6 leading-none">THENES</h1>
+            <h1 class="text-8xl md:text-[12rem] font-signature text-white leading-none mb-8">thenes</h1>
             <p class="text-lg md:text-xl font-light text-secondary max-w-2xl mx-auto mb-10">Kelimelerin ötesine geçen ses manzaraları. Modern çağ için İstanbul'un imza sesi.</p>
             <div class="flex flex-col items-center gap-12">
                 <a href="#portfolio" class="btn-premium px-10 py-4 text-xs font-bold tracking-widest uppercase">
@@ -174,9 +176,9 @@
             </div>
             <div class="space-y-8">
                 <span class="text-accent text-[10px] font-bold tracking-[0.5em] uppercase block">Hakkımda</span>
-                <h2 class="text-5xl font-black tracking-tight">thenes Hakkında</h2>
+                <h2 class="text-5xl font-black tracking-tight uppercase">thenes Hakkında</h2>
                 <p class="text-secondary leading-loose text-lg font-light">
-                    İstanbul'un kalbinde yer alan thenes, geleneksel sonik dokular ile modern endüstriyel ritimler arasında bir köprü kuruyor. Ses mühendisliği ve beatmaking alanındaki on yılı aşkın tecrübesiyle, yeni nesil küresel sanatçılar için işitsel kimlikler tasarlıyor.
+                    İstanbul'un kalbinde yer alan <span class="font-signature text-white text-2xl lowercase">thenes</span>, geleneksel sonik dokular ile modern endüstriyel ritimler arasında bir köprü kuruyor. Ses mühendisliği ve beatmaking alanındaki on yılı aşkın tecrübesiyle, yeni nesil küresel sanatçılar için işitsel kimlikler tasarlıyor.
                 </p>
                 <p class="text-secondary leading-loose text-lg font-light">
                     Dark Trap, Melodic Drill ve Sinematik Ses Tasarımı konularında uzmanlaşan thenes'in her prodüksiyonu, atmosfer ve etkinin titiz bir dengesidir.
@@ -230,7 +232,7 @@
                 </svg>
             </div>
             <p class="text-secondary text-[10px] font-bold tracking-[0.4em] uppercase opacity-50">
-                &copy; 2026 thenes. Istanbul. Tüm hakları saklıdır.
+                &copy; 2026 <span class="font-signature lowercase text-white text-lg">thenes</span>. Istanbul. Tüm hakları saklıdır.
             </p>
         </div>
     </footer>
