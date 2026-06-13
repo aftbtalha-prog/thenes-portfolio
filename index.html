@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="tr" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>thenes | Premium Music Producer</title>
+    <title>thenes | Profesyonel Müzik Prodüktörü</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -22,11 +21,21 @@
                 }
             }
         }
+
+        // Background Source Config - Update these variables to swap images
+        const CONFIG = {
+            heroBg: 'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&q=80&w=2000',
+            aboutBg: 'https://images.unsplash.com/photo-1557683316-973673baf926?auto=format&fit=crop&q=80&w=1000'
+        };
+
+        window.onload = () => {
+            document.getElementById('hero-section').style.backgroundImage = `linear-gradient(to bottom, rgba(26,26,26,0.4), rgba(26,26,26,1)), url('${CONFIG.heroBg}')`;
+            document.getElementById('about-image').src = CONFIG.aboutBg;
+        };
     </script>
     <style>
         body { background-color: #1A1A1A; color: #FFFFFF; }
-        .hero-gradient {
-            background: linear-gradient(to bottom, rgba(26,26,26,0.4), rgba(26,26,26,1)), url('https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&q=80&w=2000');
+        #hero-section {
             background-size: cover;
             background-position: center;
         }
@@ -74,22 +83,22 @@
     <header class="fixed top-0 w-full z-50 py-8 px-10 flex justify-between items-center backdrop-blur-md bg-dark/30">
         <div class="text-2xl font-black tracking-tighter uppercase">thenes</div>
         <nav class="hidden md:flex space-x-10 text-[10px] font-bold tracking-[0.3em] uppercase">
-            <a href="#home" class="nav-link">Home</a>
-            <a href="#portfolio" class="nav-link">Portfolio</a>
-            <a href="#about" class="nav-link">About</a>
-            <a href="#contact" class="nav-link">Contact</a>
+            <a href="#home" class="nav-link">ANA SAYFA</a>
+            <a href="#portfolio" class="nav-link">PORTFOLYO</a>
+            <a href="#about" class="nav-link">HAKKIMDA</a>
+            <a href="#contact" class="nav-link">İLETİŞİM</a>
         </nav>
     </header>
 
     <!-- Hero Section -->
-    <section id="home" class="h-screen hero-gradient flex flex-col justify-center items-center text-center px-6">
+    <section id="hero-section" class="h-screen flex flex-col justify-center items-center text-center px-6">
         <div class="space-y-4 max-w-4xl">
-            <span class="text-accent text-xs font-bold tracking-[0.5em] uppercase block mb-2">Music Producer</span>
+            <span class="text-accent text-xs font-bold tracking-[0.5em] uppercase block mb-2">Müzik Prodüktörü</span>
             <h1 class="text-7xl md:text-9xl font-black tracking-tighter mb-6 leading-none">THENES</h1>
-            <p class="text-lg md:text-xl font-light text-secondary max-w-2xl mx-auto mb-10">Crafting soundscapes that speak beyond words. Istanbul's signature sound for the modern era.</p>
+            <p class="text-lg md:text-xl font-light text-secondary max-w-2xl mx-auto mb-10">Kelimelerin ötesine geçen ses manzaraları. Modern çağ için İstanbul'un imza sesi.</p>
             <div class="flex flex-col items-center gap-12">
                 <a href="#portfolio" class="btn-premium px-10 py-4 text-xs font-bold tracking-widest uppercase">
-                    Listen to my work
+                    Çalışmalarımı Dinleyin
                 </a>
                 <a href="#portfolio" class="animate-bounce-slow">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B89C6F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 13l5 5 5-5M7 6l5 5 5-5"/></svg>
@@ -101,8 +110,8 @@
     <!-- Portfolio Section -->
     <section id="portfolio" class="py-32 px-10 max-w-7xl mx-auto">
         <div class="text-center mb-24">
-            <span class="text-accent text-[10px] font-bold tracking-[0.5em] uppercase block mb-4">Portfolio</span>
-            <h2 class="text-4xl md:text-5xl font-black tracking-tight">Selected Works</h2>
+            <span class="text-accent text-[10px] font-bold tracking-[0.5em] uppercase block mb-4">Portfolyo</span>
+            <h2 class="text-4xl md:text-5xl font-black tracking-tight uppercase">Seçili İşler</h2>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -151,7 +160,7 @@
 
         <div class="text-center mt-20">
             <a href="#" class="btn-premium px-10 py-4 text-[10px] font-bold tracking-[0.3em] uppercase inline-block">
-                View All Tracks
+                TÜM PARÇALARI GÖR
             </a>
         </div>
     </section>
@@ -161,19 +170,19 @@
         <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
             <div class="relative group">
                 <div class="absolute -inset-4 border border-accent/20 transition-all group-hover:inset-0"></div>
-                <img src="https://images.unsplash.com/photo-1557683316-973673baf926?auto=format&fit=crop&q=80&w=1000" class="relative z-10 w-full h-[600px] object-cover grayscale hover:grayscale-0 transition-all duration-700" alt="thenes in studio">
+                <img id="about-image" src="" class="relative z-10 w-full h-[600px] object-cover grayscale hover:grayscale-0 transition-all duration-700" alt="thenes stüdyoda">
             </div>
             <div class="space-y-8">
-                <span class="text-accent text-[10px] font-bold tracking-[0.5em] uppercase block">About</span>
-                <h2 class="text-5xl font-black tracking-tight">About thenes</h2>
+                <span class="text-accent text-[10px] font-bold tracking-[0.5em] uppercase block">Hakkımda</span>
+                <h2 class="text-5xl font-black tracking-tight">thenes Hakkında</h2>
                 <p class="text-secondary leading-loose text-lg font-light">
-                    Based in the heart of Istanbul, thenes bridges the gap between traditional sonic textures and modern industrial rhythms. With over a decade of experience in sound engineering and beatmaking, he crafts audio identities for the next generation of global artists.
+                    İstanbul'un kalbinde yer alan thenes, geleneksel sonik dokular ile modern endüstriyel ritimler arasında bir köprü kuruyor. Ses mühendisliği ve beatmaking alanındaki on yılı aşkın tecrübesiyle, yeni nesil küresel sanatçılar için işitsel kimlikler tasarlıyor.
                 </p>
                 <p class="text-secondary leading-loose text-lg font-light">
-                    Specializing in Dark Trap, Melodic Drill, and Cinematic Soundscapes, every production is a meticulous balance of atmosphere and impact.
+                    Dark Trap, Melodic Drill ve Sinematik Ses Tasarımı konularında uzmanlaşan thenes'in her prodüksiyonu, atmosfer ve etkinin titiz bir dengesidir.
                 </p>
                 <a href="#" class="btn-premium px-10 py-4 text-[10px] font-bold tracking-[0.3em] uppercase inline-block mt-4">
-                    Learn More
+                    DAHA FAZLA BİLGİ
                 </a>
             </div>
         </div>
@@ -183,9 +192,9 @@
     <section id="contact" class="py-32 px-10 text-center">
         <div class="max-w-3xl mx-auto space-y-12">
             <div class="space-y-4">
-                <span class="text-accent text-[10px] font-bold tracking-[0.5em] uppercase block">Contact</span>
-                <h2 class="text-6xl font-black tracking-tighter">Let&apos;s Connect</h2>
-                <p class="text-secondary text-xl font-light">Have a project in mind? Let&apos;s work together.</p>
+                <span class="text-accent text-[10px] font-bold tracking-[0.5em] uppercase block">İletişim</span>
+                <h2 class="text-6xl font-black tracking-tighter uppercase">Bağlantı Kurun</h2>
+                <p class="text-secondary text-xl font-light">Aklınızda bir proje mi var? Birlikte çalışalım.</p>
             </div>
 
             <div class="flex flex-col md:flex-row justify-center items-center gap-12 pt-10">
@@ -221,20 +230,9 @@
                 </svg>
             </div>
             <p class="text-secondary text-[10px] font-bold tracking-[0.4em] uppercase opacity-50">
-                &copy; 2026 thenes. Istanbul. All rights reserved.
+                &copy; 2026 thenes. Istanbul. Tüm hakları saklıdır.
             </p>
         </div>
     </footer>
-
-    <div class="bg-black/80 py-6 px-10 flex items-center gap-6 border-t border-accent/10">
-        <div class="text-accent opacity-50">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-        </div>
-        <div>
-            <h4 class="text-xs font-bold tracking-widest uppercase text-white mb-1">Single-File Implementation</h4>
-            <p class="text-[10px] text-secondary font-light">All premium styles, animations, and layouts contained in a single performant file.</p>
-        </div>
-    </div>
-
 </body>
 </html>
